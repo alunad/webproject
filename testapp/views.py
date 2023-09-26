@@ -46,7 +46,7 @@ def dividir(request):
     ayb = json.loads(request.body.decode())
     a = ayb["a"]
     b = ayb["b"]
-    if a == 0 or b == 0:
+    if a == 0:
         response = "Division by Zero"
     else:
         response = int(a) / int(b)

@@ -24,7 +24,7 @@ urlpatterns = [
     path('gallery', testapp.views.gallery),
     path('gallery/<photo>', testapp.views.gallery_photo),
     path('sumar', testapp.views.sumar),
-    path('restar', testapp.views.sumar),
-    path('multiplicar', testapp.views.sumar),
-    path('dividir', testapp.views.sumar),
+    path('restar', testapp.views.restar),
+    path('multiplicar', testapp.views.multiplicar),
+    path('dividir', testapp.views.dividir),
 ]
