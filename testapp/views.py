@@ -15,17 +15,41 @@ def get_example(request):
 
 
 @csrf_exempt
-def post_example(request):
+def sumar(request):
     ayb = json.loads(request.body.decode())
     a = ayb["a"]
     b = ayb["b"]
-    response = {int(a) + int(b)}
-    # response = {'request': {'time': datetime.now().isoformat(),
-    #                        'method': request.method,
-    #                        'path': request.path,
-    #                        'params': request.GET,
-    #                        'headers': dict(request.headers),
-    #                        'body': request.body.decode()}}
+    response = int(a) + int(b)
+    return JsonResponse(response, safe=False, json_dumps_params={'indent': 2})
+
+
+@csrf_exempt
+def restar(request):
+    ayb = json.loads(request.body.decode())
+    a = ayb["a"]
+    b = ayb["b"]
+    response = int(a) - int(b)
+    return JsonResponse(response, safe=False, json_dumps_params={'indent': 2})
+
+
+@csrf_exempt
+def multiplicar(request):
+    ayb = json.loads(request.body.decode())
+    a = ayb["a"]
+    b = ayb["b"]
+    response = int(a) * int(b)
+    return JsonResponse(response, safe=False, json_dumps_params={'indent': 2})
+
+
+@csrf_exempt
+def dividir(request):
+    ayb = json.loads(request.body.decode())
+    a = ayb["a"]
+    b = ayb["b"]
+    if a == 0 or b == 0:
+        response = "Division by Zero"
+    else:
+        response = int(a) / int(b)
     return JsonResponse(response, safe=False, json_dumps_params={'indent': 2})
 
 
